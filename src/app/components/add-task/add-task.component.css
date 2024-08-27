@@ -1,0 +1,111 @@
+/* General styling for form */
+.task-form {
+    max-width: 500px;
+    margin: 5% auto; /* Center the form horizontally and vertically */
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  /* Title styling */
+  .form-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  /* Styling for form groups */
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Label styling */
+  .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  /* Input, textarea, and select styling */
+  .form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+  
+  /* Checkbox styling */
+  .form-check {
+    margin-top: 0.5rem;
+  }
+  
+  /* Submit button styling */
+  .submit-button {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .submit-button:active {
+    animation: bounce 0.6s;
+  }
+  
+  /* Keyframes for fadeIn animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Keyframes for bounce animation */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .task-form {
+      padding: 1rem;
+    }
+  
+    .form-control,
+    .submit-button {
+      font-size: 0.9rem;
+    }
+  }
+  

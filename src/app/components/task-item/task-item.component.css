@@ -1,0 +1,127 @@
+.task {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  animation: fadeIn 0.5s ease;
+  gap: 8px; /* Add spacing between elements */
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+.task-info {
+  width: 100%; /* Full width for task info */
+}
+
+.task-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.task-description,
+.task-due-date,
+.task-priority {
+  font-size: 14px;
+}
+
+.task-priority {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.priority-Low {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.priority-Medium {
+  background-color: #FFC107;
+  color: #333;
+}
+
+.priority-High {
+  background-color: #F44336;
+  color: white;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px; /* Space between buttons */
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  justify-content: flex-start; /* Align buttons to start */
+}
+
+.btn-struct {
+  color: white;
+  border: none;
+  padding: 6px 12px; /* Adjust padding for smaller buttons */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1; /* Allow buttons to grow and fill available space */
+  min-width: 70px; /* Minimum width for buttons */
+  font-size: 12px; /* Smaller font size */
+}
+
+.bg-red {
+  background-color: rgb(248, 91, 0);
+}
+
+.bg-grn {
+  background-color: #4CAF50;
+}
+
+.bg-blu {
+  background-color: rgb(80, 225, 236);
+}
+
+.btn-struct:hover {
+  background-color: #333; /* Darker shade for hover effect */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media queries for responsive design */
+@media (max-width: 600px) {
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    flex-direction: row; /* Keep buttons in a row */
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+
+  .btn-struct {
+    flex: 1; /* Allow buttons to grow */
+    min-width: 60px; /* Adjust minimum width */
+    margin-bottom: 8px; /* Add space between rows */
+    font-size: 10px; /* Smaller font size on very small screens */
+  }
+}
+
+@media (max-width: 412px) {
+  .btn-struct {
+    width: 100%; /* Full width for buttons on very small screens */
+    max-width: none; /* Remove max width limit */
+    font-size: 10px; /* Smaller font size */
+    padding: 4px 8px; /* Smaller padding */
+  }
+}

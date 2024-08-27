@@ -1,0 +1,11 @@
+<div class="task-history-container">
+  <h1>Task History</h1>
+  <div *ngIf="(history$ | async)?.length === 0" class="no-tasks">
+    No tasks in history.
+  </div>
+  <div class="task-list" *ngIf="history$">
+    <div class="task" *ngFor="let task of history$ | async">
+      <app-task-item [task]="task" [ishist]="true"></app-task-item>
+    </div>
+  </div>
+</div>

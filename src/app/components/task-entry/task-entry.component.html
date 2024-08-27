@@ -1,0 +1,8 @@
+<div class="task-list">
+    <div *ngIf="(tasks$ | async)?.length ?? 0 > 0; else noTasks">
+        <app-task-item *ngFor="let task of tasks$ | async" [task]="task"></app-task-item>
+    </div>
+    <ng-template #noTasks>
+        <div class="no-tasks">No tasks available</div>
+    </ng-template>
+</div>
