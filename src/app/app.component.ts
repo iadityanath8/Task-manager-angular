@@ -6,6 +6,8 @@ import { Task } from './store/task.model';
 import { loadHist, loadTasks } from './store/task.actions';
 import { Observable } from 'rxjs';
 import { selectAllTasks } from './store/task.selector';
+import { saveAs } from 'file-saver'
+
 
 @Component({
   selector: 'app-root',
@@ -24,10 +26,10 @@ export class AppComponent implements OnInit {
     this.tasks$ = this.store.select(selectAllTasks); // Make sure you use the correct selector
   }
 
-  // 
-
-  exportToCSV() {
-    console.log("Hello world from again in here")
+  exportToCSV(event: Event) {
+    let count = 0
+    event.preventDefault()
+    event.stopPropagation()
     this.tasks$.subscribe(tasks => {
       if (tasks.length == 0) {
         alert("No task to export ")
@@ -51,13 +53,18 @@ export class AppComponent implements OnInit {
         rows.push(row.join(','));
       }
 
-      const csvContent = 'data:text/csv;charset=utf-8,' + encodeURI(rows.join('\n'));
-      const link = document.createElement('a');
-      link.setAttribute('href', csvContent);
-      link.setAttribute('download', 'tasks.csv');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link); // Clean up
+      if (count == 0) {
+        const csvContent = 'data:text/csv;charset=utf-8,' + encodeURI(rows.join('\n'));
+        const link = document.createElement('a');
+        link.setAttribute('href', csvContent);
+        link.setAttribute('download', 'tasks.csv');
+        link.classList.add('csv-download'); // Add class to the <a> tag
+        document.body.appendChild(link);
+        link.click();
+        count++;
+      }
+      count++;
+      // document.body.removeChild(link); // Clean up
     }
     )
   }
@@ -75,6 +82,6 @@ export class AppComponent implements OnInit {
     const history = histfromls ? JSON.parse(histfromls) : [];
 
     this.store.dispatch(loadTasks({ tasks: tasks }));
-    this.store.dispatch(loadHist({  history }))
+    this.store.dispatch(loadHist({ history }))
   }
 }

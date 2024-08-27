@@ -2,7 +2,7 @@
   <a href="#" class="nav-logo">Task Manager</a>
   <ul class="nav-menu">
     <li><a routerLink="/">Home</a></li>
-    <li><a (click)="exportToCSV()" class="pointee">Export</a></li>
+    <li ><a class="pointee" (click)="exportToCSV($event)">Export</a></li>
     <li><a routerLink="/history">History</a></li>
     <li><a routerLink="/add-task">Add Task</a></li>
   </ul>

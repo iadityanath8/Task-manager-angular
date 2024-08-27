@@ -89,6 +89,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/task-manager",
+            "netlifyToken": "nfp_9zhL6Dunb9KzFQNN1LcXixmD6uaeB44Sf104",
+            "siteId": ""
+          }
         }
       }
     }
